@@ -38,13 +38,11 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  /* background-color: #1a1a1a; */
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -147,10 +145,14 @@ button:focus-visible {
   }
 }
 /* Sirf Header links ke liye hover/focus bottom border */
+/* Base nav link */
 .header-nav .header-link {
   position: relative;
+  color: #fff; /* default text color */
+  transition: color 0.3s ease;
 }
 
+/* Hover / focus underline */
 .header-nav .header-link::after {
   content: "";
   position: absolute;
@@ -166,6 +168,16 @@ button:focus-visible {
 .header-nav .header-link:focus::after {
   width: 100%;
 }
+
+/* Active state */
+.header-nav .header-link.active {
+  color: #febe10; /* yellow text */
+}
+
+.header-nav .header-link.active::after {
+  width: 100%; /* underline stays */
+}
+
 /* index.css ya global css me add karein */
 @keyframes yellowSlide {
   0% {
