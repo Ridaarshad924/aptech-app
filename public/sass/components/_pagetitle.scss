@@ -1,0 +1,163 @@
+.pagetitle {
+    width: 100%;
+    text-align: center;
+    padding: 6rem 0 5rem;
+    // color: $dark-black;
+    position: relative;
+    background-color: $dark-black !important;
+    // background-image: none;
+    z-index: 1;
+
+    &.newsm {
+        padding: 14rem 0 5rem; 
+
+        margin-top: 4.5rem;
+    }
+
+    &.aboutPage.alumniPage {
+        background-color: $dark-black !important;
+    }
+
+    video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.8;
+    }
+
+    p {
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: $white;
+
+        @include for-mobile {
+            font-size: 1.2rem;
+        }
+    }
+
+    .title {
+        width: 50%;
+        margin: auto;
+        font-size: 4.5rem;
+        line-height: 4.5rem;
+        font-weight: 600;
+        letter-spacing: -0.3rem;
+        color: $white;
+
+        @include for-tablet {
+            font-size: 3rem;
+            line-height: 3rem;
+            letter-spacing: 0;
+            width: 70%;
+        }
+
+        @include for-mobile {
+            width: 100%;
+            font-size: 2rem;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 70%;
+        transform: translateX(-50%) rotate(180deg);
+        width: 500px;
+        height: 100%;
+        background: url(../images/icon-aptech.png) no-repeat;
+        background-size: contain;
+        opacity: 0.05;
+        z-index: -1;
+
+        @include for-tablet {
+            width: 240px;
+            right: 0;
+            left: auto;
+            transform: translateX(0%) rotate(180deg);
+        }
+
+        @include for-mobile {
+            width: 180px;
+            top: -120px;
+            right: 0;
+            left: auto;
+        }
+    }
+
+    &.outline {
+        // text-align: left;
+        padding: 8rem 2rem 5rem;
+
+        .title {
+            width: 60%;
+        }
+    }
+
+    &.outline::before {
+        background: url(../images/icon-outline.png) no-repeat;
+        height: 400px;
+        // background-size: cover;
+
+    }
+
+
+}
+
+.breadcrumb {
+    display: flex;
+    padding: 1rem 0;
+    list-style: none;
+
+    &.center {
+        justify-content: center;
+    }
+
+    &.left {
+        width: 87%;
+        margin: auto;
+    }
+
+
+    // background-color: $light-grey;
+
+    li {
+        position: relative;
+        padding: 0 0px 0 20px;
+        font-size: 16px;
+
+        &:last-child {
+            color: $brand-color;
+        }
+
+        a {
+            color: $dark-black;
+
+            &:hover {
+                color: $brand-color;
+            }
+        }
+
+        &:first-child {
+            padding: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        &::before {
+            content: "/";
+            font-size: 12px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 8px;
+            color: $dark-black;
+        }
+    }
+}

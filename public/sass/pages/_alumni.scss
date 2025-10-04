@@ -1,0 +1,94 @@
+.alumniPage {
+    // background: url('/assets/images/alumni/alumnibanner.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+
+    .aboutText {
+        // background-color: rgba($color: $brand-color, $alpha: 0.5);
+        backdrop-filter: blur(2px);
+        padding: 3rem 2rem 1rem;
+        color: $white;
+
+        p {
+            color: $white;
+        }
+    }
+
+    &::before {
+        display: none;
+    }
+}
+
+.alumniPageSection {
+    .placementIntro {
+        width: 80% !important;
+        border: 0 !important;
+
+        .placementStepsItems {
+            width: 31% !important;
+
+            .imgBox {
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            .textBox {
+                h4 {
+                    font-weight: 500;
+                }
+
+                a {
+                    svg {
+                        width: 20px;
+                        height: 20px;
+
+                    }
+
+                    &:hover {
+                        svg {
+                            fill: $brand-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ceoCard {
+    width: 240px;
+
+    position: relative;
+
+        &:nth-child(8)::before {
+            content: 'View More';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 5px);
+            background: rgba(0, 0, 0, 0.75);
+            display: grid;
+            place-items: center;
+            font-size: 3rem;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        
+
+    img {
+        width: 100%;
+    }
+}
+
+.menutab {
+    &.menutab2 {
+        width: 50% !important;
+        margin: auto !important;
+    }
+}
+
+

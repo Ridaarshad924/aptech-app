@@ -1,0 +1,415 @@
+.card {
+  height: 100%;
+  background-color: $brand-color;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  color: $dark-black;
+  display: block;
+  position: relative;
+  transition: 0.5s;
+
+  .icon {
+      margin-bottom: 0.8rem;
+
+      svg {
+          width: 60px;
+          height: 60px;
+          object-fit: contain;
+          margin-bottom: 0.5rem;
+      }
+
+      &-text {
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          margin-bottom: 1rem;
+          background-color: $light-black;
+          color: $white;
+      }
+  }
+
+  .iconimg {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      // mix-blend-mode: darken;
+  }
+
+  p {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      width: 90%;
+      margin-bottom: 3rem;
+
+      a {
+          color: $dark-black;
+          text-decoration: underline;
+      }
+  }
+
+  div {
+      ul {
+          flex-direction: column;
+          list-style: circle;
+          margin-left: 1rem;
+          font-size: 0.8rem;
+
+          li {
+              padding-inline: 0 !important;
+          }
+      }
+  }
+
+  .more {
+      svg {
+          width: 24px;
+      }
+  }
+
+  &::before {
+      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+              rgba($white, 0.3),
+              transparent 40%);
+      // z-index: 3;
+  }
+
+  &::after {
+      background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+              rgba($white, 0.1),
+              transparent 40%);
+      // z-index: 1;
+  }
+
+  &.shortCard {
+      background-color: $white;
+      box-shadow: 0 0 24px 0 rgba($dark-black, 0.05);
+      padding: 0;
+      padding-bottom: 15px;
+      overflow: hidden;
+
+      .icon {
+          width: 100%;
+          height: 200px;
+          display: grid;
+          place-items: center;
+
+          img {
+              width: 100%;
+              height: auto;
+          }
+      }
+
+      h5 {
+          width: 85%;
+          margin: auto;
+      }
+
+      p {
+          width: 85%;
+          font-size: 14px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 1rem;
+      }
+
+      a {
+          margin-left: 20px;
+          width: 35px;
+          height: 35px;
+          display: grid;
+          background-color: #febe10;
+          color: #fff;
+          border-radius: 50%;
+          place-items: center;
+      }
+  }
+
+  .cardFooter {
+      display: flex;
+      // flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 85%;
+      margin: auto;
+      margin-bottom: 10px;
+
+      .detail {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .detailItem {
+              display: flex;
+              flex-direction: column;
+              gap: 0;
+
+              h6 {
+                  font-weight: 600;
+                  font-size: 14px;
+              }
+
+              small {
+                  font-size: 12px;
+              }
+          }
+      }
+
+      a {
+          margin: 0;
+      }
+  }
+
+  // &::before,
+  // &::after {
+  //     border-radius: inherit;
+  //     content: "";
+  //     height: 100%;
+  //     left: 0px;
+  //     opacity: 0;
+  //     position: absolute;
+  //     top: 0px;
+  //     transition: opacity 500ms;
+  //     width: 100%;
+  // }
+
+
+  &:hover {
+      transform: translateY(-0.5rem);
+
+      ::before {
+          opacity: 1;
+      }
+  }
+
+  $count: 1;
+
+  @while $count < 100 {
+      &.card-#{$count} {
+          background-color: rgba($brand-color, 0.30);
+      }
+
+      $count: $count + 4;
+  }
+
+  $count: 2;
+
+  @while $count < 100 {
+      &.card-#{$count} {
+          background-color: rgba($brand-color, 0.50);
+      }
+
+      $count: $count + 4;
+  }
+
+  $count: 3;
+
+  @while $count < 100 {
+      &.card-#{$count} {
+          background-color: rgba($brand-color, 0.75);
+      }
+
+      $count: $count + 4;
+  }
+
+  // &.card-1,
+  // &.card-5 {
+  //     background-color: rgba($brand-color, 0.30);
+  // }
+
+  // &.card-2,
+  // &.card-6 {
+  //     background-color: rgba($brand-color, 0.50);
+  // }
+
+  // &.card-3,
+  // &.card-7 {
+  //     background-color: rgba($brand-color, 0.75);
+  // }
+}
+
+.swiper:hover>.card::after {
+  opacity: 1;
+}
+
+.card1 {
+  height: fit-content;
+  // background-color: $brand-color;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  color: $dark-black;
+  display: block;
+  position: relative;
+  transition: 0.5s;
+
+  // h6 {}
+
+  .small {
+      font-size: 0.9rem;
+  }
+}
+
+.alumni {
+
+
+  .idCard {
+      max-width: calc((100% / 3.5));
+
+      .cardHeader::before {
+          background-color: $white;
+      }
+  }
+}
+
+.idCard {
+  width: 100%;
+  max-width: calc((100% / 4.5));
+  border-radius: 1rem;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  @include shadows;
+
+  // img.w-100 {
+  //     max-height: 50px;
+  //     margin: auto;
+  // }
+  img.w-100 {
+      width: 100px;
+      // max-width: 100%;
+      margin: auto;
+      height: 100px;
+      object-fit: contain;
+  }
+
+  .cardHeader {
+      width: 100%;
+      height: 150px;
+      position: relative;
+      display: flex;
+      align-items: end;
+
+      &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          height: 90%;
+          background-color: $brand-color;
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+      }
+
+      .studentProfile {
+          width: 140px;
+          height: 140px;
+          margin: 0 auto;
+          border-radius: 50%;
+          border: 5px solid transparent;
+          box-shadow: 0 0 0 2px $white;
+          overflow: hidden;
+          position: relative;
+          // @include shadows;
+
+          img {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              inset: 0;
+              object-fit: cover;
+              object-position: top center;
+          }
+      }
+  }
+
+  .cardBody {
+      padding: 1rem;
+      padding-bottom: 2rem;
+
+      h5 {
+          text-transform: uppercase;
+          text-align: center;
+      }
+
+      span {
+          // color: $brand-color;
+          color: $light-black;
+          font-weight: 500;
+          font-size: 12px;
+          text-align: center;
+          display: block;
+          text-transform: uppercase;
+      }
+
+      ul {
+          margin-top: 1rem;
+          list-style: none;
+          display: block;
+
+          li {
+              font-size: 14px;
+              margin-bottom: 0.1rem;
+              padding: 0;
+          }
+      }
+  }
+}
+
+.cxoCard {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  z-index: 1;
+
+  .userData {
+      display: flex;
+      align-items: flex-start;
+
+      .userImg {
+          width: 240px;
+          height: 340px;
+          padding: 5px;
+          border-radius: 20px;
+          background-color: $brand-color;
+
+          img {
+              width: 100%;
+              height: 100%;
+              border-radius: 16px;
+              object-fit: cover;
+          }
+      }
+
+
+      .userDetail {
+          width: 240px;
+          height: 135px;
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 8px;
+          margin-left: -1rem;
+          background-color: white;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+          margin-top: 2rem;
+
+          img {
+              width: 180px;
+          }
+      }
+  }
+
+  .userTalk {
+      background-color: $dark-black;
+      color: $white;
+      font-size: 1.125rem;
+      padding: 2rem;
+      border-radius: 20px;
+      position: absolute;
+      bottom: -1rem;
+      left: 4rem;
+      padding-left: 200px;
+      z-index: -1;
+  }
+}

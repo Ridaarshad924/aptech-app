@@ -1,0 +1,217 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+footer {
+    padding: 3rem;
+
+    @include for-mobile {
+        padding: 2rem;
+    }
+
+    .row {
+        justify-content: space-between;
+
+        @include for-tablet {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+
+    .col {
+        // width: 32%;
+        flex: 2;
+        padding: 0.5rem 0;
+        // display: flex;
+
+        @include for-tablet {
+            width: 100%;
+            flex-direction: column;
+        }
+
+        &:first-child {
+            flex: 1;
+            // flex-direction: column;
+            // border-top: 0;
+        }
+
+        .logo-footer {
+            img {
+                width: 100px;
+                margin-bottom: 1em;
+            }
+        }
+
+        p {
+            font-size: 0.9rem;
+        }
+
+        .naming {
+            width: 110px;
+            padding-top: 0.5rem;
+        }
+
+        .links {
+            width: 100%;
+
+            ul {
+                list-style: none;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                justify-content: flex-end;
+                gap: 2rem;
+
+                li {
+                    border-bottom: 2px solid transparent;
+                    transition: 0.5s;
+
+                    &:nth-last-child(1) {
+                        a {
+                            img {
+                                max-width: 50px;
+                            }
+                        }
+                    }
+
+                    &:nth-last-child(2) {
+                        a {
+                            img {
+                                max-width: 150px;
+                            }
+                        }
+                    }
+
+                    a {
+                        font-size: 1rem;
+                        padding: 0.4rem 0;
+                        display: block;
+                        transition: 0.5s;
+                        color: $light-black;
+
+                        img {
+                            width: 100%;
+                            max-width: 100px;
+                        }
+
+
+
+                        // &:hover {
+                        //     transform: translateX(10px);
+                        //     color: $brand-color;
+                        // }
+                    }
+
+                    // &:hover {
+                    //     border-color: $brand-color;
+
+                    // }
+
+                }
+            }
+
+            .socialLinks {
+                gap: 5px;
+
+                li {
+                    &:nth-child(1) {
+                        a {
+                            background-color: #1877F2;
+                            color: $white;
+
+                            &:hover {
+                                background-color: $dark-black;
+                            }
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        a {
+                            background-color: #CD201F;
+                            color: $white;
+
+                            &:hover {
+                                background-color: $dark-black;
+                            }
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        a {
+                            background-color: #0A66C2;
+                            color: $white;
+
+                            &:hover {
+                                background-color: $dark-black;
+                            }
+                        }
+                    }
+
+                    &:nth-child(4) {
+                        a {
+                            background-color: #25D366;
+                            color: $white;
+
+                            &:hover {
+                                background-color: $dark-black;
+                            }
+                        }
+                    }
+                }
+
+                a {
+                    font-size: 1.125rem;
+                    width: 40px;
+                    height: 40px;
+                    // background-color: $dark-black;
+                    display: grid;
+                    color: $white;
+                    place-items: center;
+
+                    &:hover {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    p.copyright {
+        margin-top: 2rem;
+
+        &,
+        a {
+            font-size: 0.8rem;
+            color: $light-black;
+            font-weight: 500;
+        }
+    }
+
+    .morelinks {
+        display: flex;
+        list-style: none;
+        gap: 10px;
+
+        a {
+            color: $dark-black;
+            font-size: 13px;
+
+        }
+    }
+
+}
+
+.no-home {
+    footer {
+
+        .col {
+            p {
+                width: 60%;
+            }
+
+            .naming {
+                width: 150px;
+            }
+        }
+    }
+}

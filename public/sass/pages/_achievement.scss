@@ -1,0 +1,122 @@
+$bp-sm: 576px;
+$bp-md: 768px;
+
+.achievementPage {
+  height: 600px;
+  background: url("/assets/images/new/acheivement.jpg") no-repeat;
+  background-size: contain;
+  // background-attachment: fixed;
+  background-position: center center;
+
+  .title {
+    color: $light-grey;
+    // letter-spacing: 4px;
+    background-color: $brand-color;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+.achievementSection {
+  border: 0;
+
+  .placementSteps {
+    flex-wrap: wrap;
+
+    .placementStepsItems {
+      width: 100% !important;
+      // margin: 1%;
+      border: 1px solid $light-grey !important;
+      text-align: left;
+      transition: 0.5s;
+      margin-bottom: 2rem;
+      background-color: $white;
+      display: flex;
+
+      @media (max-width: $bp-md) {
+        flex-direction: column;
+        &:nth-child(1),
+        &:nth-child(2) {
+          .mainBox {
+            width: 100%;
+          }
+          .imgBox {
+            width: 100% !important;
+            img {
+              object-position: top center;
+            }
+          }
+        }
+        &:nth-child(1) {
+          flex-direction: column-reverse;
+        }
+      }
+
+      &.lastItem {
+        .mainBox {
+          width: 100%;
+
+          p {
+            height: auto;
+          }
+        }
+      }
+
+      &:hover {
+        @include shadows;
+      }
+
+      // .textBox {
+      //     border-bottom: 1px solid $light-grey;
+      //     text-align: left;
+      //     padding: 0.8rem 1rem;
+
+      //     h4 {
+      //         font-size: 1.1rem;
+      //     }
+      // }
+
+      .mainBox {
+        width: 50%;
+        padding: 2rem;
+
+        p {
+          width: 100%;
+        }
+      }
+
+      p {
+        width: 90%;
+        font-size: 1rem;
+        margin: 1rem auto 0;
+        height: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        span {
+          background-color: $brand-color;
+          color: $white;
+          padding: 1px 14px;
+          // font-size: 13px;
+        }
+      }
+
+      .imgBox {
+        width: 50% !important;
+        height: 400px !important;
+        margin: 0 !important;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top right;
+        }
+      }
+    }
+  }
+}

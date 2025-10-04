@@ -1,0 +1,130 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  // outline: 1px solid;
+}
+
+::selection {
+  background-color: $brand-color;
+  color: $white;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+  transition: 0.5s;
+
+  @include on-event {
+    color: $text-color;
+    // text-decoration: underline;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.dot {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  // box-shadow: 0 0.2rem 0 0 $dim-grey,
+  // 0.2rem 0.2rem 0 0 $dim-grey,
+  // 0.2rem 0rem 0 0 $dim-grey;
+  background-color: $brand-color;
+}
+
+.bg-white {
+  background-color: $white !important;
+}
+
+.bg-light {
+  background-color: #fbfafa;
+}
+
+.bg-brand {
+  // background-color: rgba($color: $brand-color, $alpha: 0.4);
+}
+
+.text-start {
+  text-align: left;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  background-color: $brand-color;
+  opacity: 0.6;
+  color: $white;
+}
+
+.placeholder1 {
+  background-color: $light-grey;
+  opacity: 1;
+  color: $brand-color;
+}
+
+.h-auto {
+  height: auto !important;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mt-n-1 {
+  margin-top: -10px;
+}
+
+.align-center {
+  align-items: center !important;
+}
+
+.object-center {
+  object-position: center center !important;
+}
+
+.no-bg {
+  background: none !important;
+}
+
+.border-top {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 4px;
+    background-color: $dark-black;
+  }
+}

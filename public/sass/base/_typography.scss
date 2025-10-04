@@ -1,0 +1,34 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font: normal 125% / 1.4 $text-font-stack;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $dark-black;
+}
+
+.newheading {
+  font-size: 4.5rem;
+  line-height: 4.5rem;
+  font-weight: 600;
+  letter-spacing: -0.3rem;
+  color: $dark-black;
+}
+
+
+.text-center {
+  text-align: center !important;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
