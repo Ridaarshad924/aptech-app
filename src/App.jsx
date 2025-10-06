@@ -14,6 +14,7 @@ import Courses from './Pages/Courses/Courses'
 import SmartProfessional from './Pages/Courses/SmartProfessional'
 import ShortCourse from './Pages/Courses/ShortCourse'
 import Languages from './Pages/Courses/Languages'
+import Center from './Pages/Center'
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/courses-sc" element={<ShortCourse />} />
         <Route path="/courses-lg" element={<Languages />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/centre" element={<Center />} />
       </Routes>
     </>
   )

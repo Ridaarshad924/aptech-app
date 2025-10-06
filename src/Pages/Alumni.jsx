@@ -5,6 +5,7 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 import Header from "../Components/Header";
 
 function Alumni() {
+    const [activeTab, setActiveTab] = useState("cxo");
     const [activeItem, setActiveItem] = useState(null);
     const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
     const [isactive, setActive] = useState(2022_23);
@@ -377,8 +378,9 @@ function Alumni() {
                             style={{ width: "100%", padding: 0, height: "60px" }}
                         >
                             <button
-                                className="menu__item active"
+                                className={`menu__item ${activeTab === "cxo" ? "active" : ""}`}
                                 style={{ height: "1px", width: "39px" }}
+                                onClick={() => setActiveTab("cxo")}
                             >
                                 <svg
                                     className="icon"
@@ -391,8 +393,9 @@ function Alumni() {
                             </button>
 
                             <button
-                                className="menu__item"
+                                className={`menu__item ${activeTab === "star" ? "active" : ""}`}
                                 style={{ height: "1px", width: "39px" }}
+                                onClick={() => setActiveTab("star")}
                             >
                                 <svg
                                     className="icon"
@@ -405,8 +408,9 @@ function Alumni() {
                             </button>
 
                             <button
-                                className="menu__item"
+                                className={`menu__item ${activeTab === "recent" ? "active" : ""}`}
                                 style={{ height: "1px", width: "39px" }}
+                                onClick={() => setActiveTab("recent")}
                             >
                                 <svg
                                     className="icon"
@@ -420,50 +424,40 @@ function Alumni() {
                         </menu>
                     ) : (
                         <menu className="menutab menutab2">
-                            <button className="menu__item active">
-                                <svg
-                                    className="icon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 448 512"
-                                >
+                            <button
+                                className={`menu__item ${activeTab === "cxo" ? "active" : ""}`}
+                                onClick={() => setActiveTab("cxo")}
+                            >
+                                <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                     <path d="M224 256A128 128 0 1 1 224 0a128 128 0 1 1 0 256zM209.1 359.2l-18.6-31c-6.4-10.7 1.3-24.2 13.7-24.2H224h19.7c12.4 0 20.1 13.6 13.7 24.2l-18.6 31 33.4 123.9 36-146.9c2-8.1 9.8-13.4 17.9-11.3c70.1 17.6 121.9 81 121.9 156.4c0 17-13.8 30.7-30.7 30.7H285.5c-2.1 0-4-.4-5.8-1.1l.3 1.1H168l.3-1.1c-1.8 .7-3.8 1.1-5.8 1.1H30.7C13.8 512 0 498.2 0 481.3c0-75.5 51.9-138.9 121.9-156.4c8.1-2 15.9 3.3 17.9 11.3l36 146.9 33.4-123.9z" />
                                 </svg>
                                 <p>CXO</p>
                             </button>
 
-                            <button className="menu__item">
-                                <svg
-                                    className="icon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 640 512"
-                                >
+                            <button
+                                className={`menu__item ${activeTab === "star" ? "active" : ""}`}
+                                onClick={() => setActiveTab("star")}
+                            >
+                                <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                                     <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z" />
                                 </svg>
                                 <p>Star Alumni</p>
                             </button>
 
-                            <button className="menu__item">
-                                <svg
-                                    className="icon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 640 512"
-                                >
+                            <button
+                                className={`menu__item ${activeTab === "recent" ? "active" : ""}`}
+                                onClick={() => setActiveTab("recent")}
+                            >
+                                <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                                     <path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z" />
                                 </svg>
                                 <p>Recent Alumni</p>
                             </button>
 
-                            <div
-                                className="menu__border"
-                                style={{ transform: "scale(1) translate3d(33px, 0px, 0px)" }}
-                            ></div>
-                            <div
-                                className="menu__border menu__border2"
-                                style={{
-                                    transform: "scale(1) scaleY(-1) translate3d(33px, 0px, 0px)",
-                                }}
-                            ></div>
+                            <div className="menu__border" style={{ transform: "scale(1) translate3d(33px, 0px, 0px)" }}></div>
+                            <div className="menu__border menu__border2" style={{ transform: "scale(1) scaleY(-1) translate3d(33px, 0px, 0px)" }}></div>
                         </menu>
+
                     )}
                     <div className="moreDetails">
                         <section
@@ -472,36 +466,30 @@ function Alumni() {
                             style={{ paddingTop: "2rem", paddingBlock: "0rem" }}
                         >
                             <div className="filterItem">
-                                {isSmallDevice ? (
-                                    <div
-                                        className="centerDetailsInner"
-                                        style={{ marginTop: "2rem" }}
-                                    >
-                                        {cxo.map((e) => (
-                                            <div className="cxoCard">
-                                                <div
-                                                    className="userData"
-                                                    style={{
-                                                        display: "flex",
-                                                        justifyContent: "center",
-                                                        flexDirection: "column",
-                                                        alignItems: "center",
-                                                    }}
-                                                >
-                                                    <div className="userImg">
-                                                        <img src={e.img} alt="" />
-                                                    </div>
-                                                    <div
-                                                        className="userDetail"
-                                                        style={{ margin: "12px" }}
-                                                    >
-                                                        <img
-                                                            src={e.companyLogo}
-                                                            className="userlogo"
-                                                            alt=""
-                                                        />
-                                                        <h4>{e.name}</h4>
-                                                    </div>
+                                {isSmallDevice && activeTab === "cxo" ? (
+                                    <div className="centerDetailsInner mt-8 grid gap-6">
+                                        {cxo.map((e, idx) => (
+                                            <div
+                                                key={idx}
+                                                className="cxoCard bg-white shadow-lg rounded-xl p-4 flex flex-col items-center transition-transform duration-300 hover:scale-105"
+                                            >
+                                                {/* User Image */}
+                                                <div className="userImg w-24 h-24 mb-4">
+                                                    <img
+                                                        src={e.img}
+                                                        alt={e.name}
+                                                        className="w-full h-full object-cover rounded-full border-2 border-yellow-400"
+                                                    />
+                                                </div>
+
+                                                {/* Company Logo & Name */}
+                                                <div className="userDetail flex flex-col items-center text-center space-y-2">
+                                                    <img
+                                                        src={e.companyLogo}
+                                                        alt={`${e.name} Logo`}
+                                                        className="w-16 h-16 object-contain mb-2"
+                                                    />
+                                                    <h4 className="font-semibold text-gray-800 text-lg">{e.name}</h4>
                                                 </div>
                                             </div>
                                         ))}
@@ -511,189 +499,159 @@ function Alumni() {
                                         className="centerDetailsInner"
                                         style={{ marginTop: "2rem" }}
                                     >
-                                        {cxo.map((e) => (
-                                            <div className="cxoCard">
-                                                <div className="userData">
-                                                    <div
-                                                        className="userImg"
-                                                        style={{ backgroundColor: "transparent" }}
-                                                    >
-                                                        <img src={e.img} alt="" />
-                                                    </div>
-                                                    <div className="userDetail">
+                                        {activeTab === "cxo" && cxo.map((e, idx) => (
+                                            <div key={idx} className="relative w-[90%] max-w-[700px] mx-auto mb-8 z-10">
+                                                <div className="flex items-start">
+                                                    <div className="w-[240px] h-[340px] p-1.5 rounded-[20px] bg-transparent">
                                                         <img
-                                                            src={e.companyLogo}
-                                                            className="userlogo"
+                                                            src={e.img}
                                                             alt=""
+                                                            className="w-full h-full rounded-[16px] object-cover"
                                                         />
-                                                        <h4>{e.name}</h4>
+                                                    </div>
+                                                    <div className="w-[240px] h-[135px] rounded-[20px] flex flex-col items-center justify-center gap-2 ml-[-1rem] mt-8 bg-white shadow-md">
+                                                        <img src={e.companyLogo} alt="" className="w-[180px]" />
+                                                        <h4 className="text-center">{e.name}</h4>
                                                     </div>
                                                 </div>
-                                                <div className="userTalk">
+                                                <div className="absolute bottom-[-1rem] left-16 bg-black text-white text-lg rounded-[20px] pl-[200px] p-8 z-[-1]">
                                                     <p>{e.description}</p>
                                                 </div>
                                             </div>
+
                                         ))}
                                     </div>
                                 )}
                             </div>
 
-                            <div className="filterItem">
-                                <div className="filters">
-                                    <h2 className="title">Star Alumni's</h2>
-                                    <div>
-                                        <input type="month" />
-                                    </div>
-                                </div>
-                                <div className="centerDetailsInner alumni">
-                                    <div
-                                        className="idCard"
-                                        style={isSmallDevice ? { maxWidth: "100%" } : {}}
-                                    >
-                                        <div className="cardHeader">
-                                            <div className="studentProfile">
-                                                <img src="assets/images/alumni/star/6.png" alt="" />
-                                            </div>
+                            <div className="p-6">
+                                {activeTab === "star" && (
+                                    <>
+                                        {/* Filter Section */}
+                                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
+                                            <h2 className="text-2xl font-semibold">Star Alumni's</h2>
+                                            <input
+                                                type="month"
+                                                className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                            />
                                         </div>
-                                        <div className="cardBody">
-                                            <h5>aon ali</h5>
-                                            <span>Country Lead Pakistan</span>
-                                            <span>ASIA Market Salesforce</span>
-                                        </div>
-                                    </div>
 
-                                    <div
-                                        className="idCard"
-                                        style={isSmallDevice ? { maxWidth: "100%" } : {}}
-                                    >
-                                        <div className="cardHeader">
-                                            <div className="studentProfile">
-                                                <img src="assets/images/alumni/star/5.png" alt="" />
-                                            </div>
+                                        {/* Alumni Cards Grid */}
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                                            {[
+                                                {
+                                                    img: "assets/images/alumni/star/6.png",
+                                                    name: "aon ali",
+                                                    title1: "Country Lead Pakistan",
+                                                    title2: "ASIA Market Salesforce",
+                                                },
+                                                {
+                                                    img: "assets/images/alumni/star/5.png",
+                                                    name: "Qurat Baloch",
+                                                    title1: "Software Engineer",
+                                                    title2: "Apple Inc",
+                                                },
+                                                {
+                                                    img: "assets/images/alumni/star/10.jpg",
+                                                    name: "RIZWAN SHAIKH",
+                                                    title1: "Project Head",
+                                                    title2: "Hamariweb.com",
+                                                },
+                                                {
+                                                    img: "assets/images/alumni/star/1.png",
+                                                    name: "S. M. Kashif Faraz Ali",
+                                                    title1: "CTO AT RA Group &",
+                                                    title2: "System Analyst Dawat E Islami",
+                                                },
+                                                {
+                                                    img: "assets/images/alumni/star/2.png",
+                                                    name: "Syed Shumail Mehdi",
+                                                    title1: "Solution Architect",
+                                                    title2: "4s Advisory",
+                                                },
+                                                {
+                                                    img: "assets/images/alumni/star/3.png",
+                                                    name: "Adil Kamal",
+                                                    title1: "Senior .net developer",
+                                                    title2: "Invision custom solutions",
+                                                },
+                                            ].map((alumni, idx) => (
+                                                <div
+                                                    key={idx}
+                                                    className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+                                                >
+                                                    <div className="flex justify-center p-4">
+                                                        <img
+                                                            src={alumni.img}
+                                                            alt={alumni.name}
+                                                            className="w-32 h-32 rounded-full object-cover border-4 border-yellow-400"
+                                                        />
+                                                    </div>
+                                                    <div className="text-center px-4 pb-6">
+                                                        <h5 className="text-lg font-semibold">{alumni.name}</h5>
+                                                        <p className="text-gray-600">{alumni.title1}</p>
+                                                        <p className="text-gray-600">{alumni.title2}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
                                         </div>
-                                        <div className="cardBody">
-                                            <h5>Qurat Baloch</h5>
-                                            <span>Software Engineer</span>
-                                            <span>Apple Inc</span>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className="idCard"
-                                        style={isSmallDevice ? { maxWidth: "100%" } : {}}
-                                    >
-                                        <div className="cardHeader">
-                                            <div className="studentProfile">
-                                                <img src="assets/images/alumni/star/10.jpg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div className="cardBody">
-                                            <h5>RIZWAN SHAIKH</h5>
-                                            <span>Project Head</span>
-                                            <span>Hamariweb.com</span>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className="idCard"
-                                        style={isSmallDevice ? { maxWidth: "100%" } : {}}
-                                    >
-                                        <div className="cardHeader">
-                                            <div className="studentProfile">
-                                                <img src="assets/images/alumni/star/1.png" alt="" />
-                                            </div>
-                                        </div>
-                                        <div className="cardBody">
-                                            <h5>S. M. Kashif Faraz Ali</h5>
-                                            <span>CTO AT RA Group &</span>
-                                            <span>System Analyst Dawat E Islami</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        className="idCard"
-                                        style={isSmallDevice ? { maxWidth: "100%" } : {}}
-                                    >
-                                        <div className="cardHeader">
-                                            <div className="studentProfile">
-                                                <img src="assets/images/alumni/star/2.png" alt="" />
-                                            </div>
-                                        </div>
-                                        <div className="cardBody">
-                                            <h5>Syed Shumail Mehdi</h5>
-                                            <span>Solution Architect</span>
-                                            <span>4s Advisory</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        className="idCard"
-                                        style={isSmallDevice ? { maxWidth: "100%" } : {}}
-                                    >
-                                        <div className="cardHeader">
-                                            <div className="studentProfile">
-                                                <img src="assets/images/alumni/star/3.png" alt="" />
-                                            </div>
-                                        </div>
-                                        <div className="cardBody">
-                                            <h5>Adil Kamal</h5>
-                                            <span>Senior .net developer</span>
-                                            <span>Invision custom solutions</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                    </>
+                                )}
                             </div>
-                            <div className="filterItem">
-                                <h2 className="title">Recent Alumni</h2>
-                                <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                                    <ul>
 
-                                        <li
-                                            onClick={() => setActive(2023_24)}
-                                            style={{ color: isactive == 2023_24 ? "#febe10" : "", textDecorationLine: isactive == 2023_24 ? 'underline' : '' }}
-                                        >
-                                            2022-2023
-                                        </li>
+                            <div className="p-6">
+                                {activeTab === "recent" && (
+                                    <>
+                                        {/* Title */}
+                                        <h2 className="text-2xl font-semibold mb-4">Recent Alumni</h2>
 
-                                        <li
-                                            onClick={() => setActive(2022_23)}
-                                            style={{ color: isactive == 2022_23 ? "#febe10" : "", textDecorationLine: isactive == 2022_23 ? 'underline' : '' }}
-                                        >
-                                            2022-2021
-                                        </li>
+                                        {/* Year Filter Tabs */}
+                                        <div className="flex flex-wrap gap-4 mb-6">
+                                            {[
+                                                { label: "2022-2023", value: 2023_24 },
+                                                { label: "2021-2022", value: 2022_23 },
+                                                { label: "2020-2021", value: 2020_21 },
+                                                { label: "2019-2020", value: 2019_20 },
+                                            ].map((year, idx) => (
+                                                <button
+                                                    key={idx}
+                                                    onClick={() => setActive(year.value)}
+                                                    className={`px-4 py-2 rounded-md font-medium transition-colors ${isactive === year.value
+                                                        ? "text-yellow-500 underline"
+                                                        : "text-gray-700 hover:text-yellow-500"
+                                                        }`}
+                                                >
+                                                    {year.label}
+                                                </button>
+                                            ))}
+                                        </div>
 
-                                        <li
-                                            onClick={() => setActive(2020_21)}
-                                            style={{ color: isactive == 2020_21 ? "#febe10" : "", textDecorationLine: isactive == 2020_21 ? 'underline' : '' }}
-                                        >
-                                            2021-2020
-                                        </li>
-                                        <li
-                                            onClick={() => setActive(2019_20)}
-                                            style={{ color: isactive == 2019_20 ? "#febe10" : "", textDecorationLine: isactive == 2019_20 ? 'underline' : '' }}
-                                        >
-                                            2020-2019
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div
-                                    className="centerDetailsInner"
-                                    style={{ marginTop: "2rem", display: 'flex', justifyContent: 'center' }}
-                                >
-                                    {alumni
-                                        .filter((e) => e.year === isactive)
-                                        .map((e) => (
-                                            <div className="ceoCard" key={e.id} onClick={() => openInNewTab(e.link)}>
-                                                <img
-                                                    src={e.img}
-                                                    alt=""
-                                                />
-                                            </div>
-                                        ))}
-                                </div>
+                                        {/* Alumni Cards */}
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center">
+                                            {alumni
+                                                .filter((e) => e.year === isactive)
+                                                .map((e) => (
+                                                    <div
+                                                        key={e.id}
+                                                        onClick={() => openInNewTab(e.link)}
+                                                        className="cursor-pointer transform hover:scale-105 transition-transform duration-300"
+                                                    >
+                                                        <img
+                                                            src={e.img}
+                                                            alt={e.name}
+                                                            className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-md"
+                                                        />
+                                                    </div>
+                                                ))}
+                                        </div>
+                                    </>
+                                )}
                             </div>
+
                         </section>
                     </div>
-                </section>
-            </section>
+                </section >
+            </section >
             <Footer />
         </>
     );

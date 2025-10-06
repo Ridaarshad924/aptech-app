@@ -137,16 +137,17 @@ function Courses() {
 
             {/* Tabs */}
             <div className="mt-10 px-4 flex justify-center">
-                <div className="inline-flex gap-4 bg-[#001236] rounded-lg p-2 whitespace-nowrap">
+                <div className="inline-flex flex-wrap md:flex-nowrap gap-2 sm:gap-4 bg-[#001236] rounded-lg p-2 overflow-x-auto scrollbar-hide">
                     {tabs.map((tab, i) => (
                         <button
                             key={i}
                             onClick={() => setActiveTab(tab.id)}
-                            className={`px-6 py-2 rounded-lg text-base font-semibold transition-colors ${i === tabs.length - 1
-                                ? "bg-[#febe10] text-[#001236]"
-                                : activeTab === tab.id
-                                    ? "bg-white text-[#001236]"
-                                    : "text-white"
+                            className={`px-3 sm:px-4 md:px-6 py-2 rounded-lg text-sm sm:text-base font-semibold transition-colors whitespace-nowrap 
+          ${i === tabs.length - 1
+                                    ? "bg-[#febe10] text-[#001236]"
+                                    : activeTab === tab.id
+                                        ? "bg-white text-[#001236]"
+                                        : "text-white"
                                 }`}
                         >
                             {tab.title}
@@ -161,12 +162,11 @@ function Courses() {
             </div>
 
             {/* Course Grid */}
-            {/* Course Grid */}
             <section className="mb-16 px-4 bg-[#f8f9fa]">
                 <div
                     className={`mx-auto grid gap-8 ${activeTab === 1
-                            ? "max-w-6xl grid-cols-1 sm:grid-cols-2" // Career Program tab
-                            : "max-w-[1400px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                        ? "max-w-6xl grid-cols-1 sm:grid-cols-2" // Career Program tab
+                        : "max-w-[1400px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                         }`}
                 >
                     {filteredCourses.map((course) => (
