@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import NewsEvents from './Pages/NewsEvents'
@@ -18,6 +18,15 @@ import Center from './Pages/Center'
 
 function App() {
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // or "smooth" if you like smooth scroll
+    });
+  }, [pathname]);
   return (
     <>
       <Routes>

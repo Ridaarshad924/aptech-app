@@ -8,21 +8,20 @@ function Home() {
     return (
         <div className="flex flex-col min-h-screen ">
             <Header />
-            <div className="flex flex-1">
-                {/* Sidebar - fixed left, no scroll */}
-                <aside className="w-72 bg-gray-100 sticky left-0 top-0 border-r overflow-hidden">
+            <div className="flex-1 block lg:flex">
+                {/* Sidebar */}
+                <aside className="w-full lg:w-72 bg-gray-100 lg:sticky relative left-0 top-0 border-r overflow-hidden">
                     <div className="h-full">
                         <Sidebar />
                     </div>
                 </aside>
 
-                {/* Main content - scrollable only here */}
+                {/* Main content */}
                 <div className="flex flex-col flex-1 overflow-hidden">
                     <main className="flex-1 overflow-y-auto bg-white">
                         <Main />
                     </main>
 
-                    {/* Footer stays after main */}
                     <footer className="shrink-0 bg-gray-100">
                         <Footer />
                     </footer>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { Search as SearchIcon, Menu, X, Phone } from "lucide-react";
 
@@ -8,6 +8,16 @@ const Header = () => {
     const [showCourses, setShowCourses] = useState(false); // 👈 NEW
     const [activeCity, setActiveCity] = useState("Karachi");
     const navigate = useNavigate();
+    const [showMenu, setShowMenu] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setShowMenu(true);
+        } else {
+            const timer = setTimeout(() => setShowMenu(false), 500);
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen]);
 
     // 👇 Demo Courses list (tum apne real data se replace kar lena)
     const coursesList = [
@@ -147,9 +157,9 @@ const Header = () => {
 
     return (
         <header className="bg-white shadow-lg sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20 relative">
-                {/* Logo */}
-                <div className="flex items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-20 py-2 relative flex-nowrap">
+                {/* ✅ Logo - never shrinks */}
+                <div className="flex items-center flex-shrink-0">
                     <img
                         src="/assets/images/logo.png"
                         alt="Logo"
@@ -158,29 +168,29 @@ const Header = () => {
                     />
                 </div>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center space-x-8 header-nav relative">
-
+                {/* ✅ Desktop Navigation - hidden on tablet & mobile */}
+                <nav className="hidden lg:flex items-center space-x-6 header-nav relative flex-shrink">
                     {/* 👇 COURSES Mega Dropdown */}
                     <div
                         onMouseEnter={() => setShowCourses(true)}
                         onMouseLeave={() => setShowCourses(false)}
                         className=""
                     >
-                        <span
-                            className={`relative text-base font-semibold leading-[70px] cursor-pointer transition duration-300 ${showCourses ? "text-[#febe10]" : "text-black"
-                                }`}
+                        <NavLink
+                            to="/courses"
+                            className={({ isActive }) =>
+                                `relative text-base font-semibold py-[25px] transition duration-300 whitespace-nowrap
+    ${isActive ? "text-[#febe10] after:w-full" : "text-black after:w-0"}
+    after:absolute after:-bottom-[3px] after:left-0 after:h-[2px] after:bg-[#febe10] 
+    after:transition-all hover:text-[#febe10] hover:after:w-full`
+                            }
                         >
                             Courses
-                            <span
-                                className={`absolute left-0 bottom-0 h-[2px] bg-[#febe10] transition-all duration-300 ${showCourses ? "w-full" : "w-0"
-                                    }`}
-                            ></span>
-                        </span>
+                        </NavLink>
 
                         {/* Mega Dropdown */}
                         <div
-                            className={`absolute left-1/4 transform -translate-x-1/4 top-full mt-4 bg-white shadow-2xl rounded-2xl w-[900px] max-h-[80vh] overflow-y-auto border border-gray-200 transition-all duration-500 ease-out ${showCourses
+                            className={`absolute left-1/2 transform -translate-x-1/2 top-full mt-4 bg-white shadow-2xl rounded-2xl w-[900px] max-h-[80vh] overflow-y-auto border border-gray-200 transition-all duration-500 ease-out ${showCourses
                                 ? "opacity-100 translate-y-0 visible"
                                 : "opacity-0 translate-y-8 invisible"
                                 }`}
@@ -188,12 +198,19 @@ const Header = () => {
                             <div className="p-6 grid grid-cols-5 gap-4">
                                 {coursesList.map((group, i) => (
                                     <div key={i}>
-                                        <h3 className="text-lg font-semibold text-[#febe10] mb-3">{group.category}</h3>
+                                        <h3 className="text-lg font-semibold text-[#febe10] mb-3">
+                                            {group.category}
+                                        </h3>
                                         <ul className="space-y-2">
                                             {group.items.map((course, idx) => (
                                                 <li key={idx}>
                                                     <Link
-                                                        to={course.url || `/courses/${course.name.toLowerCase().replace(/\s+/g, "-")}`}
+                                                        to={
+                                                            course.url ||
+                                                            `/courses/${course.name
+                                                                .toLowerCase()
+                                                                .replace(/\s+/g, "-")}`
+                                                        }
                                                         className="hover:text-[#febe10] transition text-gray-700 text-sm"
                                                     >
                                                         {course.name}
@@ -214,33 +231,33 @@ const Header = () => {
                             to={link.to}
                             className={({ isActive }) =>
                                 `relative text-base font-semibold leading-[70px] transition duration-300 whitespace-nowrap 
-                ${isActive ? "text-[#febe10] after:w-full" : "text-black after:w-0"}
-                after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#febe10] after:transition-all hover:text-[#febe10] hover:after:w-full`
+              ${isActive ? "text-[#febe10] after:w-full" : "text-black after:w-0"
+                                }
+              after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#febe10] after:transition-all hover:text-[#febe10] hover:after:w-full`
                             }
                         >
                             {link.label}
                         </NavLink>
                     ))}
 
-                    {/* ✅ LOCATION Mega Dropdown (unchanged) */}
+                    {/* ✅ LOCATION Mega Dropdown */}
                     <div
                         onMouseEnter={() => setShowLocation(true)}
                         onMouseLeave={() => setShowLocation(false)}
                         className=""
                     >
-                        {/* Nav Text */}
-                        <span
-                            className={`relative text-base font-semibold leading-[70px] cursor-pointer transition duration-300 ${showLocation ? "text-[#febe10]" : "text-black"
-                                }`}
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                `relative text-base font-semibold py-[23px] transition duration-300 whitespace-nowrap
+    ${isActive ? "text-[#febe10] after:w-full" : "text-black after:w-0"}
+    after:absolute after:-bottom-[3px] after:left-0 after:h-[2px] after:bg-[#febe10] 
+    after:transition-all hover:text-[#febe10] hover:after:w-full`
+                            }
                         >
                             Location
-                            <span
-                                className={`absolute left-0 bottom-0 h-[2px] bg-[#febe10] transition-all duration-300 ${showLocation ? "w-full" : "w-0"
-                                    }`}
-                            ></span>
-                        </span>
+                        </NavLink>
 
-                        {/* Animated Mega Dropdown */}
                         <div
                             className={`absolute left-1/2 transform -translate-x-1/2 top-full mt-4 bg-white shadow-2xl rounded-2xl w-[900px] max-h-[80vh] overflow-y-auto border border-gray-200 transition-all duration-500 ease-out ${showLocation
                                 ? "opacity-100 translate-y-0 visible"
@@ -248,8 +265,7 @@ const Header = () => {
                                 }`}
                         >
                             <div className="p-6">
-                                {/* Tabs */}
-                                <div className="flex mb-6 border-b pb-3">
+                                <div className="flex mb-6 border-b pb-3 flex-wrap gap-2">
                                     {locations.map((city) => (
                                         <button
                                             key={city.city}
@@ -264,8 +280,7 @@ const Header = () => {
                                     ))}
                                 </div>
 
-                                {/* Centres Grid */}
-                                <div className="grid grid-cols-4 gap-6 text-sm text-gray-800">
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm text-gray-800">
                                     {locations
                                         .find((loc) => loc.city === activeCity)
                                         ?.centres.map((centre, i) => (
@@ -287,7 +302,7 @@ const Header = () => {
                     </div>
                 </nav>
 
-                {/* Icons */}
+                {/* ✅ Icons + Toggle */}
                 <div className="flex items-center space-x-4">
                     <button
                         onClick={() => navigate("/search")}
@@ -298,13 +313,58 @@ const Header = () => {
 
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-2 rounded-md hover:bg-gray-100 transition duration-300"
+                        className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition duration-300"
                     >
                         {isOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </div>
-            </div>
-        </header>
+            </div >
+
+            {/* ✅ Mobile + Tablet Menu */}
+            {
+                showMenu && (
+                    <div
+                        className={`lg:hidden slide-container shadow-lg border-t absolute top-full left-0 w-full z-40 
+    transform transition-all duration-500 
+    ${isOpen ? "animate-slideIn" : "animate-slideOut"}`}
+                    >
+                        <div className="px-6 py-6 max-h-[80vh] overflow-y-auto flex flex-col items-center">
+                            <ul className="space-y-6 w-full text-center">
+                                {[
+                                    { to: "/courses", label: "Courses" },
+                                    { to: "/about", label: "About Aptech" },
+                                    { to: "/news", label: "News & Events" },
+                                    { to: "/affiliations", label: "Affiliations" },
+                                    { to: "/partner", label: "Partner With Us" },
+                                    { to: "/alumni", label: "Alumni" },
+                                    { to: "/placement", label: "Placement" },
+                                    { to: "/centre", label: "Location" },
+                                ].map((link, index) => (
+                                    <li
+                                        key={link.to}
+                                        className={`opacity-0 animate-fadeInUp`}
+                                        style={{ animationDelay: `${0.15 * index}s` }}
+                                    >
+                                        <NavLink
+                                            to={link.to}
+                                            onClick={() => setIsOpen(false)}
+                                            className={({ isActive }) =>
+                                                `relative inline-block sm:text-sm md:text-lg font-semibold transition duration-300
+    ${isActive ? "text-[#febe10] after:w-full" : "text-gray-800 after:w-0"}
+    hover:text-[#febe10] 
+    after:absolute after:-bottom-[3px] after:left-0 after:h-[2px] after:bg-[#febe10] after:transition-all`
+                                            }
+                                        >
+                                            {link.label}
+                                        </NavLink>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                )
+            }
+        </header >
     );
 };
 
