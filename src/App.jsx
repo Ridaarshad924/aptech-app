@@ -15,6 +15,14 @@ import SmartProfessional from './Pages/Courses/SmartProfessional'
 import ShortCourse from './Pages/Courses/ShortCourse'
 import Languages from './Pages/Courses/Languages'
 import Center from './Pages/Center'
+import FreelanceAward from './Pages/FreelanceAward'
+import VisionaryAwards from './Pages/VisionaryAwards'
+import VisionVisitor from './Pages/VisionVisitor'
+import VisionVIPPass from './Pages/VisionVIPPass'
+import Feedback from './Pages/Feedback'
+import TechCamp from './Pages/TechCamp'
+import ResearchAndDevelopment from './Pages/ResearchAndDevelopment'
+import Transcript from './Transcript'
 
 function App() {
 
@@ -24,7 +32,7 @@ function App() {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "instant", // or "smooth" if you like smooth scroll
+      behavior: "instant",
     });
   }, [pathname]);
   return (
@@ -45,6 +53,14 @@ function App() {
         <Route path="/courses-lg" element={<Languages />} />
         <Route path="/search" element={<Search />} />
         <Route path="/centre" element={<Center />} />
+        <Route path="/FreeLancersAward" element={<FreelanceAward />} />
+        <Route path="/VisionaryAwards" element={<VisionaryAwards />} />
+        <Route path="/aptech-vision-vistor" element={<VisionVisitor />} />
+        <Route path="/aptech-vision-vip" element={<VisionVIPPass />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/aptech-technology-camp" element={<TechCamp />} />
+        <Route path="/Research-and-Development" element={<ResearchAndDevelopment />} />
+        <Route path="/transcript-varification" element={<Transcript />} />
       </Routes>
     </>
   )
