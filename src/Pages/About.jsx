@@ -31,7 +31,7 @@ function About() {
 
                 {/* ✅ Image with marquee-like animation */}
                 <div className="order-1 md:order-2 w-full md:w-2/5 flex justify-center md:justify-end mb-10 md:mb-0">
-                    <div className="relative w-[450px] h-[450px] rounded-full shadow-[inset_-20px_-20px_50px_2px_rgba(0,0,0,0.1)] overflow-hidden flex items-center justify-start">
+                    <div className="relative w-full max-w-[450px] aspect-square rounded-full shadow-[inset_-20px_-20px_50px_2px_rgba(0,0,0,0.1)] overflow-hidden flex items-center justify-start">
 
                         {/* ✅ Map marquee background */}
                         <div
@@ -49,6 +49,7 @@ function About() {
                     </div>
                 </div>
             </section>
+
 
             {/* Aptech Pakistan Section */}
             <section className="aboutPage bg-gray-100 py-8 px-8 flex flex-col md:flex-row items-center gap-8">
@@ -87,10 +88,10 @@ function About() {
             <section className="aboutSection py-20 px-6 md:px-16 bg-gray-50 flex flex-col md:flex-row items-center justify-between gap-12">
                 {/* Text Content */}
                 <div className="aboutText flex-1 min-w-[300px] text-left">
-                    <h2 className="text-4xl font-bold text-green-700 mb-6">🎯 Our Mission</h2>
+                    <h2 className="text-4xl font-bold text-yellow-500 mb-6">🎯 Our Mission</h2>
 
                     <p className="text-gray-700 text-lg leading-8 mb-5">
-                        Our mission is to <span className="font-semibold text-green-700">empower Pakistan through technology.</span>
+                        Our mission is to <span className="font-semibold text-yellow-500">empower Pakistan through technology.</span>
                         I.T., when rightly employed, leads to productivity improvements and prosperity at individual, organizational, societal, national, and global levels.
                     </p>
 
@@ -108,7 +109,7 @@ function About() {
                 {/* Mission Image */}
                 <div className="aboutImage flex-1 min-w-[280px] text-center">
                     <img
-                        src="assets/images/about/siriqbal.jpeg"
+                        src="assets\images\siriqbal.jpg"
                         alt="Sir Iqbal"
                         className="w-80 h-80 md:w-96 md:h-96 rounded-2xl shadow-lg object-cover mx-auto transform transition duration-500 hover:scale-105 hover:shadow-2xl"
                     />
@@ -161,51 +162,51 @@ function About() {
             </section>
 
             {/* Achievement Section */}
-            <section className="placementSection bg-gray-100 py-20">
+            <section className="placementSection bg-gray-50 py-24">
                 <div className="max-w-6xl mx-auto px-6">
-                    <h1 className="text-4xl font-bold mb-4 ">🏆 Achievement</h1>
-                    <p className="text-lg text-gray-700 leading-7 mb-12">
-                        Aptech brings to the table a wealth of over 25 years of experience in training.
-                        Solving business challenges in a competitive market is Aptech’s area of specialization.
-                        Aptech’s rapid growth has led the company to mark several milestones worldwide.
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 flex items-center gap-3">
+                        🏆 Achievement
+                    </h1>
+                    <p className="text-lg md:text-xl text-gray-700 leading-8 mb-16">
+                        Aptech brings to the table over 25 years of experience in training, specializing in solving business challenges in a competitive market. Our rapid growth has led the company to achieve several milestones worldwide.
                     </p>
 
-                    <div className="space-y-20">
+                    <div className="space-y-24">
+
                         {/* 1st Achievement */}
                         <div className="flex flex-col md:flex-row items-center gap-12">
-                            <div className="flex-1">
-                                <h4 className="text-2xl font-semibold mb-4 text-gray-800">
+                            <div className="flex-1 text-center md:text-left">
+                                <h4 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-900">
                                     International Star for Leadership In Quality Award (ISLQ)
                                 </h4>
-                                <p className="text-lg text-gray-700 leading-7">
-                                    9th April, 2017 was a great day in the history of Aptech Computer Education Pakistan
-                                    when it was called to receive the first International “International Start for Leadership
-                                    in Quality” award at BID convention Paris. The delegate from 5 continents and 27 countries
-                                    and more than 50 companies were there to cheer the remarkable success of Aptech Computer
-                                    Education Pakistan.
+                                <p className="text-gray-700 leading-7 md:leading-8 text-lg">
+                                    9th April, 2017 was a historic day for Aptech Computer Education Pakistan, receiving the first International “International Star for Leadership in Quality” award at the BID convention in Paris. Delegates from 5 continents, 27 countries, and over 50 companies celebrated this remarkable achievement.
                                 </p>
                             </div>
                             <div className="flex-1 flex justify-center">
                                 <img
                                     src="https://aptech-education.com.pk/images/award.jpg"
                                     alt="ISLQ Award"
-                                    className="w-full max-w-sm rounded-xl shadow-lg hover:scale-105 transition-transform duration-500"
+                                    className="w-full max-w-sm rounded-3xl shadow-xl hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </div>
 
                         {/* 2nd Achievement */}
                         <div className="flex flex-col md:flex-row-reverse items-center gap-12">
-                            <div className="flex-1">
-                                <p className="text-lg text-gray-700 leading-7">
-                                    Pioneer. More than 2 decades of experience in training (since 1986). Trained over 6.4 million students.
+                            <div className="flex-1 text-center md:text-left">
+                                <h4 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-900">
+                                    Pioneer in Technical Training
+                                </h4>
+                                <p className="text-gray-700 leading-7 md:leading-8 text-lg">
+                                    With more than 2 decades of experience since 1986, Aptech has trained over 6.4 million students, making it a global leader in technical education.
                                 </p>
                             </div>
                             <div className="flex-1 flex justify-center">
                                 <img
                                     src="https://aptech-education.com.pk/images/aboutimg.jpg"
                                     alt="Aptech Students"
-                                    className="w-full max-w-sm rounded-xl shadow-lg hover:scale-105 transition-transform duration-500"
+                                    className="w-full max-w-sm rounded-3xl shadow-xl hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </div>
@@ -224,8 +225,6 @@ function About() {
                     </div>
                 </div>
             </section>
-
-
             <Footer />
         </>
     );
